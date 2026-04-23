@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1776935318979",
+    "title": "fun with numbers",
+    "author": "nu",
+    "dept": "all",
+    "qty": 12,
+    "issued": 0,
+    "issuedTo": []
+  },
+  {
+    "id": "1776935662474",
+    "title": "fun with dsa",
+    "author": "nu",
+    "dept": "cse",
+    "qty": 10,
+    "issued": 2,
+    "issuedTo": [
+      {
+        "name": "ADITI SHAW",
+        "roll": "245",
+        "dept": "cse",
+        "role": "student"
+      }
+    ]
+  }
+]

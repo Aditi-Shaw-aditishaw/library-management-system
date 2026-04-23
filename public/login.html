@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Library Access</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="login-body">
+
+    <!-- PARTICLES -->
+    <div class="particles"></div>
+
+    <!-- MAIN CARD -->
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <h1 class="logo">📚 LibraryOS</h1>
+            <p class="subtitle">Access your digital library</p>
+
+            <!-- ROLE SWITCH -->
+            <div class="role-toggle">
+                <button onclick="setRole('student')" id="studentBtn" class="active">Student</button>
+                <button onclick="setRole('admin')" id="adminBtn">Admin</button>
+            </div>
+
+            <!-- INPUTS -->
+            <div class="input-group">
+                <input id="name" placeholder="Full Name">
+                <input id="roll" placeholder="id Number">
+                <input id="dept" placeholder="Department (CSE / IT)">
+            </div>
+
+            <!-- BUTTON -->
+            <button class="login-btn" onclick="login()">Enter System →</button>
+
+        </div>
+
+    </div>
+
+    <script>
+        let role = "student";
+
+        function setRole(r) {
+            role = r;
+
+            document.getElementById("studentBtn").classList.remove("active");
+            document.getElementById("adminBtn").classList.remove("active");
+
+            if (r === "student") {
+                document.getElementById("studentBtn").classList.add("active");
+            } else {
+                document.getElementById("adminBtn").classList.add("active");
+            }
+        }
+
+        function login() {
+            const user = {
+                name: document.getElementById("name").value || "User",
+                Id: document.getElementById("roll").value || "001",
+                dept: document.getElementById("dept").value || "CSE",
+                role: role
+            };
+
+            sessionStorage.setItem("user", JSON.stringify(user));
+            if (role === "admin") {
+                window.location = "admin.html";
+            } else {
+                window.location = "student.html";
+            }
+        }
+
+        // 🔥 PARTICLES GENERATOR
+        const particles = document.querySelector(".particles");
+
+        for (let i = 0; i < 40; i++) {
+            let p = document.createElement("span");
+            p.style.left = Math.random() * 100 + "vw";
+            p.style.animationDuration = (Math.random() * 5 + 5) + "s";
+            p.style.opacity = Math.random();
+            particles.appendChild(p);
+        }
+    </script>
+
+</body>
+
+</html>
